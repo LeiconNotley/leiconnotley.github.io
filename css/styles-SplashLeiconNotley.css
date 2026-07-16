@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Leicon Notley
+   Splash Stylesheet
+   ========================================================================== */
+
+/* ===== SPLASH / PRELOADER ===== */
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: splashFadeOut 0.8s ease 2.8s forwards;   /* ✅ fade only */
+}
+
+.splash-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../images/hero/Splash-Background.jpg') center/cover no-repeat;
+  animation: splashZoom 4s ease-out forwards;
+  z-index: -2;
+}
+
+.splash-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    60deg,                /* ← bottom-left to top-right direction */
+    #001428 0%,
+    #002850 30%,
+    #003366 50%,
+    #00507a 70%,
+    #006994 100%          /* much brighter */
+  );
+  opacity: 0.7;
+  z-index: -1;
+}
+
+@keyframes splashZoom {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.splash-logo {
+  height: auto;
+  width: auto;
+  max-width: 45vw;
+  filter: brightness(0) invert(1);
+  opacity: 0;
+  animation: splashLogoReveal 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.3s forwards;
+}
+
+/* Logo reveal: fades in + clips reveal left → right */
+@keyframes splashLogoReveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ✅ Fade out only — no slide up */
+@keyframes splashFadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Once hidden, remove from DOM flow */
+.splash-screen.done {
+  display: none;
+}
+
+/* Prevent scroll during splash */
+body.splash-loading {
+  overflow: hidden;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .splash-screen {
+    animation: splashFadeOut 0.3s ease 0.3s forwards;
+  }
+  .splash-logo {
+    animation: none;
+    opacity: 1;
+    clip-path: none;
+  }
+}
+   
