@@ -38,24 +38,41 @@
       }
     });
   }
-
+ 
   // ----- Active nav link on scroll -----
   var sections = document.querySelectorAll('section[id]');
   var navLinks = document.querySelectorAll('nav a');
+
+  // Build a set of section IDs that actually have a nav link
+  var trackedSections = new Set();
+  navLinks.forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (href && href.indexOf('#') === 0 && href.length > 1) {
+          trackedSections.add(href.substring(1));
+      }
+  });
+
   window.addEventListener('scroll', function () {
-    var current = '';
-    sections.forEach(function (section) {
-      var sectionTop = section.offsetTop - 120;
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute('id');
-      }
-    });
-    navLinks.forEach(function (link) {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) {
-        link.classList.add('active');
-      }
-    });
+      var current = '';
+      sections.forEach(function (section) {
+          // Skip sections that don't have a matching nav link (e.g. #clients)
+          if (!trackedSections.has(section.id)) return;
+
+          var sectionTop = section.offsetTop - 120;
+          if (window.scrollY >= sectionTop) {
+              current = section.getAttribute('id');
+          }
+      });
+
+      // Safety guard: don't wipe active state if no match found
+      if (!current) return;
+
+      navLinks.forEach(function (link) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) {
+              link.classList.add('active');
+          }
+      });
   });
 
   // ----- Fade-in animations on scroll -----
