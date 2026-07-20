@@ -1177,11 +1177,11 @@ nav ul li a:hover,nav ul li a.active {
 
 
 /* ===== FABRICATION & SWITCHBOARDS SECTION ===== */
-#fabrication, #engineering, #controls {
+#engineering, #construction, #controls {
   background: var(--light-grey);
 }
 
-#switchboards {
+#fabrication, #switchboards  {
   background: var(--white);
 }
 
