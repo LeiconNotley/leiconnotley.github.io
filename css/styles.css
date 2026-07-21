@@ -114,6 +114,19 @@ ul {
   margin: 0 auto;
 }
 
+.section-header .division-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: .85rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -1185,7 +1198,7 @@ nav ul li a:hover,nav ul li a.active {
   background: var(--white);
 }
 
-.fab-grid {
+.info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
@@ -1193,13 +1206,13 @@ nav ul li a:hover,nav ul li a.active {
 }
 
 /* Container clips the zoom — this is the magic */
-.fab-image {
+.info-image {
   overflow: hidden;
   border-radius: var(--radius);
 }
 
 /* Image scales inside the fixed container */
-.fab-image img {
+.info-image img {
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   display: block;
   width: 100%;
@@ -1207,37 +1220,37 @@ nav ul li a:hover,nav ul li a.active {
   object-fit: cover;
 }
 
-.fab-image img:hover {
+.info-image img:hover {
   transform: scale(1.08);   /* zooms 8% — feel free to tune */
 }
 
-.fab-text h3 {
+.info-text h3 {
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 16px;
 }
 
-.fab-text h4 {
+.info-text h4 {
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--primary);
   margin: 20px 0 12px;
 }
 
-.fab-text p {
+.info-text p {
   color: var(--text-light);
   margin-bottom: 16px;
 }
 
-.fab-capabilities {
+.info-capabilities {
   display: grid;
   grid-template-columns: 1fr;
   gap: 8px;
   margin-top: 8px;
 }
 
-.fab-item {
+.info-item {
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -1245,19 +1258,19 @@ nav ul li a:hover,nav ul li a.active {
   color: var(--text);
 }
 
-.fab-item i {
+.info-item i {
   color: var(--accent);
   margin-top: 4px;
   flex-shrink: 0;
 }
 
-.fab-stats {
+.info-stats {
   display: flex;
   gap: 24px;
   margin-top: 30px;
 }
 
-.fab-stat {
+.info-stat {
   text-align: center;
   background: var(--white);
   padding: 20px;
@@ -1269,19 +1282,19 @@ nav ul li a:hover,nav ul li a.active {
   flex: 1;
 }
 
-.fab-stat:hover {
+.info-stat:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(0, 26, 112, 0.15);
 }
 
-.fab-stat .number {
+.info-stat .number {
   font-size: 1.8rem;
   font-weight: 800;
   color: var(--accent);
   display: block;
 }
 
-.fab-stat .label {
+.info-stat .label {
   font-size: .8rem;
   color: var(--text-light);
   margin-top: 4px;
@@ -1606,122 +1619,24 @@ nav ul li a:hover,nav ul li a.active {
   border-radius: 50%;
 }
 
-.lec-header {
-  text-align: center;
-  margin-bottom: 60px;
-  position: relative;
-  z-index: 1;
-}
-
-.lec-header .division-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(255,255,255,.2);
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-size: .85rem;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-
-.lec-header h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--white);
-  margin-bottom: 16px;
-}
-
-.lec-header h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg,var(--light-blue),#48cae4);
-  margin: 16px auto 0;
-  border-radius: 2px;
-}
-
-.lec-header p {
-  font-size: 1.05rem;
-  opacity: .85;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
-
-.lec-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-}
-
-/* Container clips the zoom — this is the magic */
-.lec-image {
-  overflow: hidden;
-  border-radius: var(--radius);
-}
-
-/* Image scales inside the fixed container */
-.lec-image img {
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.lec-image img:hover {
-  transform: scale(1.08);   /* zooms 8% — feel free to tune */
-}
-
-.lec-text h3 {
-  font-size: 1.6rem;
-  font-weight: 700;
+#lec .info-text h3,
+#lec .info-text h4,
+#lec .info-item i {
   color: var(--light-blue);
-  margin-bottom: 16px;
 }
 
-.lec-text h4 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--light-blue);
-  margin: 20px 0 12px;
-}
-
-.lec-text p {
+#lec .section-header h2,
+#lec .section-header p,
+#lec .info-text p,
+#lec .info-item {
   color: var(--white);
-  margin-bottom: 16px;
 }
 
-.lec-text p span {
+#lec .info-text p span {
   background: linear-gradient(90deg,var(--light-blue),#48cae4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-.lec-capabilities {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
-  margin-top: 8px;
-}
-
-.lec-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: .9rem;
-  color: var(--white);
-}
-
-.lec-item i {
-  color: var(--light-blue);
-  margin-top: 4px;
-  flex-shrink: 0;
 }
 
 .lec-projects {
@@ -1857,6 +1772,7 @@ nav ul li a:hover,nav ul li a.active {
   box-shadow: var(--shadow-lg);
   border-top-color: rgba(0,119,182,.15);
 }
+
 .careers-why-card::before {
   content: '';
   position: absolute;
@@ -2335,6 +2251,7 @@ nav ul li a:hover,nav ul li a.active {
     flex: 1; justify-content: center;
   }
 }
+
 
 /* ===== CONTACT SECTION ===== */
 #contact {
@@ -2860,7 +2777,7 @@ footer {
 @media(max-width:800px) {
   
   html {
-    font-size: 14px;   /* ~12% smaller everywhere */
+    font-size: 0.9rem;   /* ~12% smaller everywhere */
   }
   
   /* Fix: allow the flex-item container in the hero to shrink below content min-width */
@@ -2936,7 +2853,7 @@ footer {
     contain: layout paint;
   }
   
-  .about-image, .fab-media {
+  .about-image, .info-media {
     display: none;
   }
   
@@ -2986,7 +2903,7 @@ footer {
     font-size: .8rem;
   }
   
-  .about-grid,.fab-grid,.contact-grid {
+  .about-grid,.info-grid,.contact-grid {
     grid-template-columns: 1fr;
   }
   
@@ -3018,35 +2935,35 @@ footer {
     grid-template-columns: 1fr;
   }
   
-  .fab-grid {
+  .info-grid {
     grid-template-columns: 1fr;
     gap: 32px;
   }
   
-  .fab-text {
+  .info-text {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
   }
   
-  .fab-capabilities {
+  .info-capabilities {
     grid-template-columns: 1fr;
     max-width: 100%;
   }
   
-  .fab-item {
+  .info-item {
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
     max-width: 100%;
   }
   
-  .fab-stat {
+  .info-stat {
     width: 100%;
     box-sizing: border-box;
   }
   
-  .fab-stats {
+  .info-stats {
     margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);  
@@ -3056,11 +2973,11 @@ footer {
     width: 100%;
   }
   
-  .fab-stat .number {
+  .info-stat .number {
     font-size: 1.8rem;
   }
   
-  .fab-stat .label {
+  .info-stat .label {
     font-size: .8rem;
   }
   
