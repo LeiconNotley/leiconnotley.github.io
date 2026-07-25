@@ -1189,7 +1189,7 @@ nav ul li a:hover,nav ul li a.active {
 }
 
 
-/* ===== FABRICATION & SWITCHBOARDS SECTION ===== */
+/* ===== INFORMATION SECTION ===== */
 #engineering, #construction, #controls {
   background: var(--light-grey);
 }
@@ -2747,14 +2747,14 @@ footer {
     padding: 0 32px;
   }
   
-  .about-grid {
+  .about-grid, .services-grid {
     grid-template-columns: 1fr;
   }
   
-  .services-grid,.lec-grid,.lec-projects-grid,.policy-grid {
+   .lec-projects-grid,.policy-grid {
     grid-template-columns: repeat(2,1fr);
   }
-  
+   
   .careers-why-grid { grid-template-columns: repeat(2, 1fr); }
   .careers-roles-grid { grid-template-columns: repeat(2, 1fr); }
   .vacancy-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -2769,9 +2769,6 @@ footer {
     display: none;
   }
   
-  .splash-logo {
-    max-width: 60vw;
-  }
 }
 
 @media(max-width:800px) {
@@ -2907,7 +2904,7 @@ footer {
     grid-template-columns: 1fr;
   }
   
-  .services-grid,.lec-grid,.lec-projects-grid,.projects-grid,.iso-cards,.policy-grid {
+  .services-grid,.lec-projects-grid,.projects-grid,.iso-cards,.policy-grid {
     grid-template-columns: 1fr;
   }
   
